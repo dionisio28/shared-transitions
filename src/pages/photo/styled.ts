@@ -14,15 +14,3 @@ export const Container = styled.View`
   justify-content: center;
   padding: 16px;
 `;
-
-export const Descripton = styled.Text`
-  font-size: 14;
-  font-weight: 600;
-  padding: 8px;
-`;
-
-export const AltDescripton = styled.Text`
-  font-size: 13;
-  font-weight: 500;
-  padding: 8px;
-`;

@@ -3,7 +3,7 @@ import React from 'react';
 import {SharedElement} from 'react-navigation-shared-element';
 import {PhotoScreenRouteProp} from '../../@types/routes.type';
 
-import {AltDescripton, Container, Descripton, Photo} from './styled';
+import {Container, Photo} from './styled';
 
 const PhotoScreen: React.FC = (): JSX.Element => {
   const {params} = useRoute<PhotoScreenRouteProp>();
