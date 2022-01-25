@@ -12,6 +12,7 @@ function RootApp() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
+          gestureEnabled: false,
           headerShown: false,
           cardOverlayEnabled: true,
           cardStyle: {backgroundColor: 'transparent'},
