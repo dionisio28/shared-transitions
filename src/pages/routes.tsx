@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomePage from './home/home-page';
 
-const Stack = createNativeStackNavigator();
+import * as Pages from './';
+import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
+
+const Stack = createSharedElementStackNavigator();
 
 function RootApp() {
   return (
@@ -12,7 +13,14 @@ function RootApp() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Home" component={HomePage} />
+        <Stack.Screen name="Home" component={Pages.Home} />
+        <Stack.Screen
+          name="Photo"
+          component={Pages.Photo}
+          sharedElements={routes => {
+            return [routes.params.photo.id];
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
