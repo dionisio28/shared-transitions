@@ -1,18 +1,25 @@
 import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useCallback, useEffect, useState} from 'react';
 import {FlatList, TouchableOpacity} from 'react-native';
 import {SharedElement} from 'react-navigation-shared-element';
 
 import {PhotoProps} from '../../@types/photo.type';
+import {RootStackParamList} from '../../@types/routes.type';
 import getPhotos from '../../service/photos';
 import {Container, Photo} from './styled';
+
+type PhotoScreenRouteProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'Photo'
+>;
 
 const HomePage: React.FC = (): JSX.Element => {
   const [images, setImages] = useState<PhotoProps[]>([]);
   const [page, setPage] = useState<number>(0);
   const [refreshing, setFefreshing] = useState<boolean>(false);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<PhotoScreenRouteProp>();
   useEffect(() => {
     loadImages();
     // eslint-disable-next-line react-hooks/exhaustive-deps
